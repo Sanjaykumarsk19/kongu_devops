@@ -1,0 +1,169 @@
+Day 3 – Docker, Nginx & Jenkins Hands-on
+🎯 Objectives
+
+Work with a free web project template
+
+Build a custom Docker image for a Node.js app
+
+Understand NGINX deployment workflow using Docker
+
+Learn basic Jenkins installation and setup
+
+Practice container lifecycle commands (run, stop, remove)
+
+🧩 Part 1: Getting a Free Project
+
+Choose a free web template from a template site
+
+Use it as a sample web / Node / React project for Docker testing
+
+This project will be used to build and deploy containers
+
+🐳 Part 2: Build Custom Docker Image (Node App)
+
+
+Build Image
+docker build -t mywebsite:v1 .
+
+Check Images
+docker images
+
+Run and Test Container
+docker run -d -p 3000:3000 mywebsite:v1
+docker ps
+
+Stop and Remove Container
+docker stop <container_id>
+docker rm <container_id>
+
+🌐 Part 3: NGINX Workflow with Docker
+
+(Using NGINX as a web server)
+
+1. Pull Nginx Image
+docker pull nginx:alpine
+docker images
+
+2. Test Nginx (Check if Working)
+docker run -d -p 8080:80 nginx:alpine
+docker ps
+
+
+Test in browser or terminal:
+
+curl localhost:8080
+
+
+Stop and remove test container:
+
+docker stop <container_id>
+docker rm <container_id>
+
+🏗️ Part 4: Build Your React / Web App
+
+Install dependencies and build:
+
+npm install
+npm run build
+
+
+This creates a build folder like:
+
+dist/   or   build/
+
+🚀 Part 5: Deploy Web App into Nginx Using Docker
+
+Run Nginx with volume mapping:
+
+docker run -d \
+  --name mynginx \
+  -p 8080:80 \
+  -v $(pwd)/dist:/usr/share/nginx/html \
+  nginx:alpine
+
+
+Now your app is served by Nginx.
+
+Check running containers:
+
+docker ps
+
+
+Test in browser:
+
+http://localhost:8080
+
+🛑 Part 6: Stop and Delete Container
+docker stop mynginx
+docker rm mynginx
+
+☀️ Afternoon Session: Jenkins Installation & Setup
+
+(Using Jenkins for CI/CD)
+
+1. Update System
+sudo apt update
+sudo apt upgrade -y
+
+2. Install Java (Jenkins Requirement)
+
+Check if Java is installed:
+
+java -version
+
+
+If not installed:
+
+sudo apt install openjdk-17-jdk -y
+
+
+Verify:
+
+java -version
+
+3. Add Jenkins Repository Key
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+4. Add Jenkins Repository
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+5. Install Jenkins
+sudo apt update
+sudo apt install jenkins -y
+
+6. Start and Enable Jenkins
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+sudo systemctl status jenkins
+
+7. Open Jenkins in Browser
+
+Default port:
+
+http://localhost:8080
+
+
+If firewall is enabled:
+
+sudo ufw allow 8080
+sudo ufw reload
+
+
+Restart Jenkins if needed:
+
+sudo systemctl restart jenkins
+
+📝 Summary
+
+Docker is used to build and run applications in containers
+
+Nginx is used as a web server to serve built frontend apps
+
+Containers can be started, stopped, and removed using Docker commands
+
+Jenkins is used for automation and CI/CD
+
+This session covered building images, running containers, and deploying apps using Nginx
