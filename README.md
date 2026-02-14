@@ -1,4 +1,5 @@
-🚀 DevOps Learning Project
+**🚀 DevOps Learning Project**
+
 📌 Overview
 
 This repository documents my hands-on learning journey in DevOps and Cloud Technologies.
