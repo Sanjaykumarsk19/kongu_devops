@@ -28,6 +28,7 @@ Linux is primarily managed using the **Command Line Interface (CLI)**.
 pwd
 ```
 
+
 ## 📁 List Files and Directories
 ```bash
 ls
