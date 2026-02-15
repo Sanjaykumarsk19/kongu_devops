@@ -2,7 +2,7 @@
 
 📌 Overview
 
-This repository documents my hands-on learning journey in DevOps and Cloud Technologies.
+This repository documents my hands-on learning journey in DevOps and Cloud Technology.
 Instead of only studying theory, I practiced each tool by running commands, building images, creating containers, setting up CI/CD pipelines, and deploying applications to the cloud.
 
 The project is structured step-by-step, starting from Linux fundamentals and moving towards containerization, automation, CI/CD, and cloud infrastructure.
